@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { Price, PriceValue } from "@/components/price";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+// import { Link } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -74,6 +75,7 @@ const ProductList = ({ className }: ProductListProps) => {
 };
 
 const ProductCard = ({
+  id,
   title,
   description,
   image,
@@ -81,8 +83,8 @@ const ProductCard = ({
   price,
 }: ProductCardProps) => {
   return (
-    <a
-      href="#"
+    <Link
+      href={`/products/${id}`}
       className="block h-full w-full max-w-md transition-opacity hover:opacity-80"
     >
       <Card className="h-full overflow-hidden p-0">
@@ -124,7 +126,7 @@ const ProductCard = ({
           </div>
         </CardContent>
       </Card>
-    </a>
+    </Link>
   );
 };
 
