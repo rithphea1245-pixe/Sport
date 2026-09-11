@@ -1,5 +1,6 @@
 // import Image from "next/image";
-import { ProductList1 } from "@/components/product-list1";
+// import { ProductList1 } from "@/components/product-list1";
+import { ProductList } from "@/components/product-list1";
 import AnimatedListDemo from "@/components/shadcn-space/animated-list/animated-list-01";
 import {
   Card,
@@ -29,7 +30,8 @@ export default function Home() {
         </CardFooter>
       </Card>
       {/* Product */}
-      <ProductList1></ProductList1>
+      {/* <ProductList1></ProductList1> */}
+      <ProductList></ProductList>
     </section>
   );
 }
