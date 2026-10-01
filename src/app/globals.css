@@ -5,11 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-sport-bg: #F8F9F3;
+  --color-sport-lime: #C6FE56;
+  --color-sport-lime-dark: #A5DE32;
+  --color-sport-dark: #12150D;
+  --color-sport-card: #FFFFFF;
+  --color-sport-border: #E2E6D5;
+  --color-sport-muted: #616D54;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-poppins), 'Poppins', sans-serif;
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-poppins), 'Poppins', sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -18,11 +26,6 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -44,77 +47,65 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #F8F9F3;
+  --foreground: #12150D;
+  --card: #FFFFFF;
+  --card-foreground: #12150D;
+  --popover: #FFFFFF;
+  --popover-foreground: #12150D;
+  --primary: #12150D;
+  --primary-foreground: #C6FE56;
+  --secondary: #EBEFE0;
+  --secondary-foreground: #12150D;
+  --muted: #EEF2E4;
+  --muted-foreground: #616D54;
+  --accent: #C6FE56;
+  --accent-foreground: #12150D;
+  --destructive: #EF4444;
+  --border: #E2E6D5;
+  --input: #E2E6D5;
+  --ring: #C6FE56;
+  --radius: 1rem;
+  --sidebar: #12150D;
+  --sidebar-foreground: #F8F9F3;
+  --sidebar-primary: #C6FE56;
+  --sidebar-primary-foreground: #12150D;
+  --sidebar-accent: #1C2215;
+  --sidebar-accent-foreground: #C6FE56;
+  --sidebar-border: #222919;
+  --sidebar-ring: #C6FE56;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #0D1009;
+  --foreground: #F8F9F3;
+  --card: #151B10;
+  --card-foreground: #F8F9F3;
+  --popover: #151B10;
+  --popover-foreground: #F8F9F3;
+  --primary: #C6FE56;
+  --primary-foreground: #12150D;
+  --secondary: #1C2415;
+  --secondary-foreground: #F8F9F3;
+  --muted: #1A2214;
+  --muted-foreground: #9AA78B;
+  --accent: #C6FE56;
+  --accent-foreground: #12150D;
+  --destructive: #F87171;
+  --border: #26331B;
+  --input: #26331B;
+  --ring: #C6FE56;
+  --sidebar: #0D1009;
+  --sidebar-foreground: #F8F9F3;
+  --sidebar-primary: #C6FE56;
+  --sidebar-primary-foreground: #12150D;
+  --sidebar-accent: #151B10;
+  --sidebar-accent-foreground: #C6FE56;
+  --sidebar-border: #26331B;
+  --sidebar-ring: #C6FE56;
 }
 
 @layer base {
@@ -122,9 +113,173 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
+}
+
+/* Khmer Language Battambang font binding */
+[data-lang="km"],
+[data-lang="km"] * {
+  font-family: var(--font-battambang), 'Battambang', var(--font-poppins), sans-serif !important;
+}
+
+/* Dark theme overrides for seamless high-contrast conference aesthetic */
+.dark body {
+  background-color: #0D1009;
+  color: #F8F9F3;
+}
+
+.dark .bg-white {
+  background-color: #151B10 !important;
+}
+
+.dark .bg-\[\#F8F9F3\] {
+  background-color: #0D1009 !important;
+}
+
+.dark .bg-\[\#EEF2E4\] {
+  background-color: #1E2816 !important;
+}
+
+/* Invert obsidian black text to clean off-white when on dark surfaces,
+   handling opacity variations as well */
+.dark .text-\[\#12150D\],
+.dark .text-\[\#12150D\]\/90,
+.dark .text-\[\#12150D\]\/80,
+.dark .text-\[\#12150D\]\/70 {
+  color: #F8F9F3 !important;
+}
+
+.dark .text-\[\#616D54\] {
+  color: #CBD5BE !important;
+}
+
+.dark .border-\[\#E2E6D5\] {
+  border-color: #26331B !important;
+}
+
+.dark .border-\[\#EEF2E4\] {
+  border-color: #212C18 !important;
+}
+
+/* Form controls & inputs text visibility in Dark Mode */
+.dark input,
+.dark textarea,
+.dark select {
+  color: #F8F9F3 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #7A896C !important;
+}
+
+.dark select option {
+  background-color: #151B10 !important;
+  color: #F8F9F3 !important;
+}
+
+/* =========================================================================
+   CRITICAL CONTRAST & ACCESSIBILITY RULE (WCAG AAA):
+   Neon volt-green (#C6FE56), lime (#B3E848 / #A5DE32), amber, and emerald elements
+   MUST ALWAYS preserve deep obsidian black text (#12150D) in BOTH light and dark mode!
+   This applies to primary CTA buttons, badges, pills, heart count indicators, and hover states.
+   ========================================================================= */
+.dark .bg-\[\#C6FE56\],
+.dark .dark\:bg-\[\#C6FE56\],
+.dark .bg-sport-lime,
+.dark .bg-sport-lime-dark,
+.dark .bg-amber-400,
+.dark .bg-emerald-400,
+.dark .bg-yellow-400 {
+  color: #12150D !important;
+}
+
+/* Force all child texts, labels, and SVGs inside active volt/lime containers to deep obsidian */
+.dark .bg-\[\#C6FE56\] *,
+.dark .dark\:bg-\[\#C6FE56\] *,
+.dark .bg-sport-lime *,
+.dark .bg-sport-lime-dark *,
+.dark .bg-amber-400 *,
+.dark .bg-emerald-400 *,
+.dark .bg-yellow-400 * {
+  color: #12150D !important;
+}
+
+/* Hovering buttons with volt background - ONLY when hovered */
+.dark .hover\:bg-\[\#C6FE56\]:hover,
+.dark .hover\:bg-\[\#C6FE56\]:hover *,
+.dark .dark\:hover\:bg-\[\#C6FE56\]:hover,
+.dark .dark\:hover\:bg-\[\#C6FE56\]:hover *,
+.dark .hover\:bg-\[\#B3E848\]:hover,
+.dark .hover\:bg-\[\#B3E848\]:hover *,
+.dark .hover\:bg-\[\#A5DE32\]:hover,
+.dark .hover\:bg-\[\#A5DE32\]:hover * {
+  color: #12150D !important;
+}
+
+.dark .shadow-xs,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Smooth Dark/Light Mode Transitions without Glitch */
+body, header, nav, footer, section, main, article, aside {
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Kinetic Marquee Animations for Dynamic Sports Ticker */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 30s linear infinite;
+  will-change: transform;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
 }
