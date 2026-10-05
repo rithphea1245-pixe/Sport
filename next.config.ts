@@ -8,8 +8,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.khmertimeskh.com" },
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "fakestoreapi.com" },
+      { protocol: "https", hostname: "i.pinimg.com" },
     ],
   },
 };
 
 export default nextConfig;
+

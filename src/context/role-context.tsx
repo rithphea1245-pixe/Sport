@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { login as apiLogin, register as apiRegister } from "@/controllers/sport.controller";
 
 export type UserRole = "user" | "admin";
 
@@ -69,28 +70,23 @@ export function RoleProvider({ children }: { children: React.ReactNode }) {
       ? "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
       : "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80";
 
-    // Attempt backend login first via proxy
+    // Attempt backend login first
     try {
-      const res = await fetch("/api/proxy/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const { ok, data } = await apiLogin(username, password);
 
-      if (res.ok) {
-        const data = await res.json();
+      if (ok) {
         const detectedRole: UserRole =
           preferredRole ||
-          (data.role === "ADMIN" || username.toLowerCase().includes("admin")
+          (data?.role === "ADMIN" || username.toLowerCase().includes("admin")
             ? "admin"
             : "user");
 
         const profile: UserProfile = {
-          username: data.username || username,
-          email: data.email,
+          username: data?.username || username,
+          email: data?.email,
           role: detectedRole,
-          token: data.accessToken || data.token,
-          avatarUrl: avatarUrl || data.avatarUrl || defaultAvatar,
+          token: data?.accessToken || data?.token,
+          avatarUrl: avatarUrl || data?.avatarUrl || defaultAvatar,
         };
         setUser(profile);
         setRoleState(detectedRole);
@@ -125,18 +121,9 @@ export function RoleProvider({ children }: { children: React.ReactNode }) {
       : "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80";
 
     try {
-      const res = await fetch("/api/proxy/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          email,
-          rawPassword: password,
-          confirmedPassword: password,
-        }),
-      });
+      const { ok } = await apiRegister(username, email, password);
 
-      if (res.ok) {
+      if (ok) {
         const profile: UserProfile = {
           username,
           email,

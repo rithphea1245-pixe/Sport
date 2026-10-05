@@ -139,11 +139,11 @@ export function SportsGrid({
               <Card
                 key={sport.uuid || sport.id}
                 onClick={() => setActiveSportModal(sport)}
-                className="group overflow-hidden rounded-[2rem] border border-[#E2E6D5] dark:border-[#26331B] hover:border-[#12150D] dark:hover:border-[#C6FE56] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between cursor-pointer bg-white dark:bg-[#151B10]"
+                className="group overflow-hidden rounded-[2rem] border border-[#E2E6D5] dark:border-[#26331B] hover:border-[#12150D] dark:hover:border-[#C6FE56] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between cursor-pointer bg-white dark:bg-[#151B10] h-full"
               >
-                <div>
+                <div className="flex-1 flex flex-col">
                   {/* Image Container */}
-                  <div className="relative w-full h-52 overflow-hidden bg-[#12150D]">
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#12150D]">
                     <img
                       src={imageUrl}
                       alt={sport.name}
@@ -199,14 +199,14 @@ export function SportsGrid({
                     </h3>
                   </CardHeader>
 
-                  <CardContent className="p-5 pt-0">
+                  <CardContent className="p-5 pt-0 flex-1">
                     <p className="text-xs sm:text-sm text-[#616D54] dark:text-[#CBD5BE] line-clamp-3 leading-relaxed font-normal">
                       {sport.description}
                     </p>
                   </CardContent>
                 </div>
 
-                <CardFooter className="p-5 pt-0 border-t border-[#EEF2E4] dark:border-[#212C18] mt-2 flex items-center justify-between">
+                <CardFooter className="p-5 pt-0 border-t border-[#EEF2E4] dark:border-[#212C18] mt-auto flex items-center justify-between">
                   <span className="text-xs font-extrabold text-[#12150D] dark:text-[#F8F9F3] flex items-center group-hover:translate-x-1 transition-transform">
                     {t("sports.viewDetails", "View Details")}
                     <ChevronRight className="w-3.5 h-3.5 ml-1 text-[#616D54] dark:text-[#CBD5BE]" />
@@ -248,8 +248,8 @@ export function SportsGrid({
 
       {/* Rich Sport Detail Reader Modal with Related Cards Switching */}
       {activeSportModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-[2.5rem] p-6 sm:p-9 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-3xl max-h-[90dvh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-9 shadow-2xl">
             {/* Close Button */}
             <button
               onClick={() => setActiveSportModal(null)}

@@ -115,7 +115,7 @@ export function SportsHub() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
       {/* Admin Quick Action Bar (ONLY visible if logged-in Admin) */}
       {isAdmin && (
-        <div className="flex items-center justify-between gap-3 p-3 px-6 mb-6 rounded-full bg-[#12150D] text-white border border-[#2B3520] shadow-md font-sans">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 px-4 sm:px-6 mb-6 rounded-2xl sm:rounded-full bg-[#12150D] text-white border border-[#2B3520] shadow-md font-sans">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#C6FE56] ring-4 ring-[#C6FE56]/20 animate-pulse" />
             <span className="text-xs sm:text-sm font-bold text-white">
@@ -123,11 +123,11 @@ export function SportsHub() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Link href="/dashboard">
               <Button
                 size="sm"
-                className="rounded-full h-7 px-3.5 text-xs font-bold bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] shadow-xs cursor-pointer flex items-center gap-1.5"
+                className="rounded-full h-8 px-3.5 text-xs font-bold bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] shadow-xs cursor-pointer flex items-center gap-1.5"
               >
                 <LayoutDashboard className="w-3.5 h-3.5" />
                 Admin Dashboard
@@ -218,6 +218,7 @@ export function SportsHub() {
         event={eventToEdit}
         isOpen={Boolean(eventToEdit)}
         onClose={() => setEventToEdit(null)}
+        categories={categories}
         onEventUpdated={() => loadAllData(true)}
       />
     </div>

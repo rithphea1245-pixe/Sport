@@ -61,41 +61,41 @@ export function HeroFloating3DCard() {
           transform: `perspective(900px) rotateX(${tilt1.rx}deg) rotateY(${tilt1.ry}deg) translateZ(25px)`,
           transition: "transform 0.15s ease-out",
         }}
-        className="absolute -top-3 -right-2 sm:right-6 lg:right-4 z-20 w-52 sm:w-60 p-4 rounded-3xl bg-[#1C2215]/85 backdrop-blur-xl border border-[#C6FE56]/40 shadow-2xl shadow-black/60 cursor-pointer select-none group"
+        className="absolute top-1 sm:top-2 right-1 sm:right-4 lg:right-4 z-20 w-44 sm:w-56 lg:w-60 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-[#1C2215]/90 backdrop-blur-xl border border-[#C6FE56]/40 shadow-2xl shadow-black/60 cursor-pointer select-none group"
       >
         {/* Specular glare */}
         <div
-          className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity"
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity"
           style={{
             background: `radial-gradient(circle at ${tilt1.glareX}% ${tilt1.glareY}%, rgba(198, 254, 86, 0.5) 0%, transparent 60%)`,
           }}
         />
 
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
+        <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C6FE56] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#C6FE56]" />
+              <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-[#C6FE56]" />
             </span>
-            <span className="text-[11px] font-black text-white uppercase tracking-wider">
-              {isKhmer ? "ការផ្សាយបន្តផ្ទាល់" : "LIVE RADAR"}
+            <span className="text-[10px] sm:text-[11px] font-black text-white uppercase tracking-wider">
+              {isKhmer ? "ការផ្សាយផ្ទាល់" : "LIVE RADAR"}
             </span>
           </div>
-          <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#C6FE56] text-[#12150D]">
+          <span className="text-[9px] sm:text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#C6FE56] text-[#12150D]">
             2026 CPL
           </span>
         </div>
 
-        <p className="text-xs font-extrabold text-[#F8F9F3] truncate">
+        <p className="text-[11px] sm:text-xs font-extrabold text-[#F8F9F3] truncate">
           {isKhmer ? "ពហុកីឡដ្ឋានជាតិអូឡាំពិក" : "National Olympic Stadium"}
         </p>
-        <p className="text-[10px] text-[#8E9B7E] flex items-center gap-1 mt-0.5">
-          <Compass className="w-3 h-3 text-[#C6FE56]" />
-          Phnom Penh • 11.5723° N, 104.9238° E
+        <p className="text-[9px] sm:text-[10px] text-[#8E9B7E] flex items-center gap-1 mt-0.5 truncate">
+          <Compass className="w-3 h-3 text-[#C6FE56] shrink-0" />
+          Phnom Penh • 11.57° N, 104.92° E
         </p>
 
         {/* Mini Radar Activity Wave */}
-        <div className="mt-2.5 pt-2 border-t border-[#2B3520] flex items-center justify-between text-[10px] text-[#C6FE56] font-mono">
+        <div className="mt-2 sm:mt-2.5 pt-1.5 sm:pt-2 border-t border-[#2B3520] flex items-center justify-between text-[9px] sm:text-[10px] text-[#C6FE56] font-mono">
           <span className="flex items-center gap-1">
             <Radio className="w-3 h-3 text-[#C6FE56] animate-pulse" />
             LIVE FEED
@@ -113,7 +113,7 @@ export function HeroFloating3DCard() {
           transform: `perspective(900px) rotateX(${tilt2.rx}deg) rotateY(${tilt2.ry}deg) translateZ(30px)`,
           transition: "transform 0.15s ease-out",
         }}
-        className="absolute -bottom-6 -left-2 sm:left-4 z-20 w-56 sm:w-64 p-4 rounded-3xl bg-[#12150D]/90 backdrop-blur-xl border border-[#2B3520] hover:border-[#C6FE56]/50 shadow-2xl shadow-black/80 cursor-pointer select-none group"
+        className="absolute bottom-1 sm:bottom-2 left-1 sm:left-4 z-20 w-48 sm:w-56 lg:w-64 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-[#12150D]/95 backdrop-blur-xl border border-[#2B3520] hover:border-[#C6FE56]/50 shadow-2xl shadow-black/80 cursor-pointer select-none group"
       >
         {/* Specular glare */}
         <div

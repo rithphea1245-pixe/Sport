@@ -50,7 +50,7 @@ export function SpringPassBanner() {
   return (
     <section className="mb-14 font-sans">
       {/* Inspired by Spring I/O 2026 header section */}
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#12150D] text-white p-8 sm:p-10 border border-[#26331B] shadow-2xl">
+      <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#12150D] text-white p-5 sm:p-8 lg:p-10 border border-[#26331B] shadow-2xl">
         {/* Glow Effects & Grid Pattern */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#C6FE56]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#C6FE56]/10 rounded-full blur-3xl pointer-events-none" />
@@ -96,11 +96,13 @@ export function SpringPassBanner() {
         </div>
 
         {/* Three Spring I/O Style Pass Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {passes.map((pass) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {passes.map((pass, index) => (
             <div
               key={pass.id}
-              className="group relative flex flex-col justify-between p-6 rounded-3xl bg-[#192213] border border-[#2A371B] hover:border-[#C6FE56] transition-all duration-300 hover:-translate-y-1 shadow-lg"
+              className={`group relative flex flex-col justify-between p-6 rounded-3xl bg-[#192213] border border-[#2A371B] hover:border-[#C6FE56] transition-all duration-300 hover:-translate-y-1 shadow-lg ${
+                index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
+              }`}
             >
               <div>
                 {/* Badge & Status */}

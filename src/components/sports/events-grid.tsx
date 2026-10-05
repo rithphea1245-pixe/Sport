@@ -132,23 +132,23 @@ export function EventsGrid({
               {t("venues.tag", "Match Venues & Arenas")}
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#12150D]">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#12150D] dark:text-[#F8F9F3]">
             {t("venues.title", "Stadiums, Grounds & Events")}
           </h2>
-          <p className="text-xs sm:text-sm text-[#616D54] mt-1">
+          <p className="text-xs sm:text-sm text-[#616D54] dark:text-[#CBD5BE] mt-1">
             {t("venues.subtitle", "Click any arena card to view full venue specs, GPS map navigation, live fan discussion, and explore related venues")}
           </p>
         </div>
       </div>
 
       {filteredEvents.length === 0 ? (
-        <div className="p-16 text-center rounded-3xl border border-dashed border-[#E2E6D5] bg-white">
-          <p className="text-[#616D54] text-base font-semibold">
+        <div className="p-12 sm:p-16 text-center rounded-3xl border border-dashed border-[#E2E6D5] dark:border-[#26331B] bg-white dark:bg-[#151B10]">
+          <p className="text-[#616D54] dark:text-[#A2AF93] text-base font-semibold">
             {t("venues.noVenues", "No events found for this discipline.")}
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredEvents.map((event) => {
             const imageUrl = getCleanImageUrl(event);
             const mapsUrl = `https://www.google.com/maps?q=${event.latitude},${event.longitude}`;
@@ -157,10 +157,10 @@ export function EventsGrid({
               <Card
                 key={event.uuid || event.id}
                 onClick={() => handleOpenEventDetails(event)}
-                className="group overflow-hidden rounded-[2rem] border border-[#E2E6D5] hover:border-[#12150D] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between bg-white cursor-pointer"
+                className="group overflow-hidden rounded-[2rem] border border-[#E2E6D5] dark:border-[#26331B] hover:border-[#12150D] dark:hover:border-[#C6FE56] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between bg-white dark:bg-[#151B10] cursor-pointer h-full"
               >
-                <div>
-                  <div className="relative w-full h-52 overflow-hidden bg-[#12150D]">
+                <div className="flex-1 flex flex-col">
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#12150D]">
                     <img
                       src={imageUrl}
                       alt={event.name}
@@ -182,7 +182,7 @@ export function EventsGrid({
                     </div>
                   </div>
 
-                  <CardHeader className="p-6 pb-2">
+                  <CardHeader className="p-5 sm:p-6 pb-2">
                     <h3 className="font-extrabold text-lg leading-snug line-clamp-2 text-[#12150D] dark:text-[#F8F9F3] group-hover:text-emerald-700 dark:group-hover:text-[#C6FE56] transition-colors">
                       {event.name}
                     </h3>
@@ -192,14 +192,14 @@ export function EventsGrid({
                     </div>
                   </CardHeader>
 
-                  <CardContent className="p-6 pt-0">
+                  <CardContent className="p-5 sm:p-6 pt-0 flex-1">
                     <p className="text-sm text-[#616D54] dark:text-[#CBD5BE] line-clamp-3 leading-relaxed font-normal">
                       {event.description}
                     </p>
                   </CardContent>
                 </div>
 
-                <CardFooter className="p-6 pt-0 border-t border-[#EEF2E4] dark:border-[#212C18] mt-2 flex items-center justify-between gap-2">
+                <CardFooter className="p-5 sm:p-6 pt-0 border-t border-[#EEF2E4] dark:border-[#212C18] mt-auto flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     {/* View Details Action */}
                     <span className="text-xs font-black text-[#12150D] dark:text-[#F8F9F3] flex items-center group-hover:text-emerald-700 dark:group-hover:text-[#C6FE56] transition-colors">
@@ -257,8 +257,8 @@ export function EventsGrid({
 
       {/* Comprehensive Event & Arena Details Modal */}
       {activeEventModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-[2.5rem] p-6 sm:p-9 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-3xl max-h-[90dvh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-9 shadow-2xl">
             {/* Close Button */}
             <button
               onClick={() => setActiveEventModal(null)}

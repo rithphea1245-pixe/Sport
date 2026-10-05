@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { SportEvent } from "@/types/sport";
+import { SportEvent, SportCategory } from "@/types/sport";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,7 @@ interface EditEventModalProps {
   event: SportEvent | null;
   isOpen: boolean;
   onClose: () => void;
+  categories: SportCategory[];
   onEventUpdated: () => void;
 }
 
@@ -19,6 +20,7 @@ export function EditEventModal({
   event,
   isOpen,
   onClose,
+  categories,
   onEventUpdated,
 }: EditEventModalProps) {
   const [name, setName] = useState("");
@@ -26,6 +28,7 @@ export function EditEventModal({
   const [locationName, setLocationName] = useState("");
   const [latitude, setLatitude] = useState(11.572356);
   const [longitude, setLongitude] = useState(104.923874);
+  const [categoryName, setCategoryName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [uploading, setUploading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -37,9 +40,10 @@ export function EditEventModal({
       setLocationName(event.locationName || "");
       setLatitude(event.latitude || 11.572356);
       setLongitude(event.longitude || 104.923874);
+      setCategoryName(event.category?.name || categories[0]?.name || "Football");
       setImageUrl(event.imageUrls?.[0] || "");
     }
-  }, [event]);
+  }, [event, categories]);
 
   if (!isOpen || !event) return null;
 
@@ -75,6 +79,7 @@ export function EditEventModal({
         locationName: locationName.trim() || "National Stadium",
         latitude: Number(latitude),
         longitude: Number(longitude),
+        categoryName: categoryName || "Football",
         imageUrls: imageUrl.trim() ? [imageUrl.trim()] : event.imageUrls,
       });
       alert("Venue updated successfully!");
@@ -87,9 +92,13 @@ export function EditEventModal({
     }
   };
 
+  const availableCategories = Array.from(
+    new Set(categories.map((c) => c.name).filter(Boolean))
+  );
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-3xl p-6 sm:p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-xl max-h-[90dvh] overflow-y-auto bg-white dark:bg-[#151B10] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-3xl p-4 sm:p-8 shadow-2xl">
         <button
           onClick={onClose}
           className="absolute top-5 right-5 w-8 h-8 rounded-full bg-muted dark:bg-[#1E2816] flex items-center justify-center text-muted-foreground hover:text-foreground cursor-pointer"
@@ -160,6 +169,23 @@ export function EditEventModal({
                 className="rounded-xl border-[#E2E6D5] dark:border-[#26331B] bg-[#F8F9F3] dark:bg-[#0D1009] text-[#12150D] dark:text-[#F8F9F3]"
               />
             </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold block mb-1 text-[#12150D] dark:text-[#F8F9F3]">
+              Category Discipline *
+            </label>
+            <select
+              value={categoryName}
+              onChange={(e) => setCategoryName(e.target.value)}
+              className="w-full h-10 px-3 rounded-xl border border-[#E2E6D5] dark:border-[#26331B] bg-[#F8F9F3] dark:bg-[#0D1009] text-[#12150D] dark:text-[#F8F9F3] text-sm focus:outline-hidden focus:ring-2 focus:ring-[#C6FE56]"
+            >
+              {availableCategories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>

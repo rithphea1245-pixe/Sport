@@ -254,7 +254,7 @@ export function Footer2() {
             <span>@2026 Sporty. All rights reserved</span>
           </div>
 
-          <div className="flex items-center gap-6 text-[#16A34A] dark:text-[#C6FE56] font-semibold text-xs sm:text-[13px]">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[#16A34A] dark:text-[#C6FE56] font-semibold text-xs sm:text-[13px]">
             <Link href="/about" className="hover:underline hover:text-[#15803D] dark:hover:text-[#D9FF70] transition-colors">
               {isKhmer ? "គោលការណ៍ភាពឯកជន" : "Privacy Policy"}
             </Link>

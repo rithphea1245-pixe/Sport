@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="SportHub">
+  <rect width="512" height="512" rx="114" fill="#12150D"/>
+  <circle cx="256" cy="256" r="150" fill="#C6FE56"/>
+  <g stroke="#12150D" stroke-width="28" stroke-linecap="round" fill="none">
+    <path d="M256 110v292"/>
+    <path d="M142 184c54 40 54 104 0 144"/>
+    <path d="M370 184c-54 40-54 104 0 144"/>
+  </g>
+</svg>

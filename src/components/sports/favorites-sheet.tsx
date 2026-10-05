@@ -35,8 +35,8 @@ export function FavoritesSheet(props: FavoritesSheetProps) {
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg max-h-[85vh] flex flex-col bg-white dark:bg-[#12150D] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-[2.5rem] p-6 sm:p-8 shadow-2xl transition-colors">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg max-h-[85dvh] flex flex-col bg-white dark:bg-[#12150D] border border-[#E2E6D5] dark:border-[#26331B] text-[#12150D] dark:text-[#F8F9F3] rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-7 shadow-2xl transition-colors">
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#EEF2E4] dark:border-[#222919]">
           <div className="flex items-center gap-3">

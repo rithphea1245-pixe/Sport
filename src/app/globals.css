@@ -116,11 +116,33 @@
     background-color: var(--background);
     color: var(--foreground);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: clip;
+    /* Respect notches / rounded corners on phones */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+  }
+  /* iOS Safari zooms the page when a focused input is under 16px,
+     which leaves the user zoomed in and stranded. */
+  input,
+  textarea,
+  select {
+    font-size: max(16px, 1em);
+  }
+  @media (min-width: 768px) {
+    input,
+    textarea,
+    select {
+      font-size: inherit;
+    }
+  }
+  /* Stop iOS from hijacking vertical scroll inside scrollable panels. */
+  .overscroll-contain {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -232,15 +254,48 @@
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Smooth Dark/Light Mode Transitions without Glitch */
-body, header, nav, footer, section, main, article, aside {
-  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+/* Smooth Dark/Light Mode Transitions without Glitch
+   Colour transitions run ONLY while `.theme-animating` is on <html>, which
+   the theme provider adds for ~320ms around the switch. Without this scoping,
+   every hover and state change would also animate, which reads as lag. */
+.theme-animating body,
+.theme-animating header,
+.theme-animating nav,
+.theme-animating footer,
+.theme-animating section,
+.theme-animating main,
+.theme-animating article,
+.theme-animating aside,
+.theme-animating div,
+.theme-animating span,
+.theme-animating button,
+.theme-animating a,
+.theme-animating img,
+.theme-animating input,
+.theme-animating textarea,
+.theme-animating select,
+.theme-animating [class*="bg-"],
+.theme-animating [class*="text-"],
+.theme-animating [class*="border-"] {
+  transition:
+    background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-delay: 0ms !important;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 220ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* Users who ask for less motion get an instant switch, not a slow one. */
+@media (prefers-reduced-motion: reduce) {
+  .theme-animating *,
+  .theme-animating *::before,
+  .theme-animating *::after {
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Kinetic Marquee Animations for Dynamic Sports Ticker */
@@ -282,4 +337,12 @@ body, header, nav, footer, section, main, article, aside {
 
 .preserve-3d {
   transform-style: preserve-3d;
+}
+
+@utility font-poppins {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+@utility font-battambang {
+  font-family: var(--font-battambang), 'Battambang', cursive, sans-serif;
 }

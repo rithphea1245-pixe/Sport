@@ -91,9 +91,9 @@ export function HeroSection({
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 mb-10">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8 sm:mb-10">
             <a href="#sports">
-              <Button className="bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] text-[15px] sm:text-[16px] font-black rounded-full px-6 h-12 shadow-lg shadow-[#C6FE56]/20 transition-all hover:scale-[1.02] cursor-pointer">
+              <Button className="bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] text-sm sm:text-[15px] font-black rounded-full px-5 sm:px-6 h-11 sm:h-12 shadow-lg shadow-[#C6FE56]/20 transition-all hover:scale-[1.02] cursor-pointer">
                 <Trophy className="w-4 h-4 mr-2" />
                 {t("hero.browseSports", "Browse Sports")}
               </Button>
@@ -102,7 +102,7 @@ export function HeroSection({
             <a href="#events">
               <Button
                 variant="outline"
-                className="border-[#2B3520] bg-[#1C2215] hover:bg-[#252E1B] text-[#F8F9F3] text-[15px] sm:text-[16px] font-bold rounded-full px-6 h-12 cursor-pointer transition-all hover:scale-[1.02]"
+                className="border-[#2B3520] bg-[#1C2215] hover:bg-[#252E1B] text-[#F8F9F3] text-sm sm:text-[15px] font-bold rounded-full px-5 sm:px-6 h-11 sm:h-12 cursor-pointer transition-all hover:scale-[1.02]"
               >
                 <Calendar className="w-4 h-4 mr-2 text-[#C6FE56]" />
                 {t("hero.venues", "Venues & Arenas")}
@@ -113,7 +113,7 @@ export function HeroSection({
             <Button
               onClick={onOpenFavorites}
               variant="outline"
-              className="border-[#2B3520] bg-[#1C2215] hover:bg-[#252E1B] text-[#F8F9F3] text-[15px] sm:text-[16px] font-bold rounded-full px-5 h-12 cursor-pointer transition-all hover:scale-[1.02]"
+              className="border-[#2B3520] bg-[#1C2215] hover:bg-[#252E1B] text-[#F8F9F3] text-sm sm:text-[15px] font-bold rounded-full px-4 sm:px-5 h-11 sm:h-12 cursor-pointer transition-all hover:scale-[1.02]"
             >
               <Heart className="w-4 h-4 mr-2 text-rose-500 fill-rose-500" />
               {t("hero.favorites", "Favorites")} ({favoritesCount})
@@ -123,7 +123,7 @@ export function HeroSection({
             {!isLoggedIn && (
               <Button
                 onClick={() => openAuthModal("login")}
-                className="bg-white dark:bg-[#1E2716] hover:bg-[#EEF2E4] dark:hover:bg-[#28351D] text-[#12150D] dark:text-[#C6FE56] border border-[#E2E6D5] dark:border-[#2C3B1D] text-[15px] sm:text-[16px] font-black rounded-full px-6 h-12 shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+                className="bg-white dark:bg-[#1E2716] hover:bg-[#EEF2E4] dark:hover:bg-[#28351D] text-[#12150D] dark:text-[#C6FE56] border border-[#E2E6D5] dark:border-[#2C3B1D] text-sm sm:text-[15px] font-black rounded-full px-5 sm:px-6 h-11 sm:h-12 shadow-md transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <LogIn className="w-4 h-4 mr-2 text-emerald-700 dark:text-[#C6FE56]" />
                 {t("hero.signIn", "Sign In")}
@@ -135,7 +135,7 @@ export function HeroSection({
               <>
                 <Button
                   onClick={onOpenCreate}
-                  className="bg-white dark:bg-[#1E2716] hover:bg-[#EEF2E4] dark:hover:bg-[#28351D] text-[#12150D] dark:text-[#C6FE56] border border-[#E2E6D5] dark:border-[#2C3B1D] text-[15px] sm:text-[16px] font-black rounded-full px-6 h-12 shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+                  className="bg-white dark:bg-[#1E2716] hover:bg-[#EEF2E4] dark:hover:bg-[#28351D] text-[#12150D] dark:text-[#C6FE56] border border-[#E2E6D5] dark:border-[#2C3B1D] text-sm sm:text-[15px] font-black rounded-full px-5 sm:px-6 h-11 sm:h-12 shadow-md transition-all hover:scale-[1.02] cursor-pointer"
                 >
                   <PlusCircle className="w-4 h-4 mr-2 text-emerald-600 dark:text-[#C6FE56]" />
                   {t("hero.createContent", "+ Create Content")}
@@ -143,7 +143,7 @@ export function HeroSection({
 
                 <a href="/dashboard">
                   <Button
-                    className="bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] text-[15px] sm:text-[16px] font-black rounded-full px-6 h-12 shadow-md shadow-[#C6FE56]/20 transition-all hover:scale-[1.02] cursor-pointer"
+                    className="bg-[#C6FE56] hover:bg-[#B3E848] text-[#12150D] text-sm sm:text-[15px] font-black rounded-full px-5 sm:px-6 h-11 sm:h-12 shadow-md shadow-[#C6FE56]/20 transition-all hover:scale-[1.02] cursor-pointer"
                   >
                     <Shield className="w-4 h-4 mr-2" />
                     Admin Dashboard
@@ -154,7 +154,7 @@ export function HeroSection({
           </div>
 
           {/* Anime.js Interpolated Live Counters */}
-          <div className="grid grid-cols-4 gap-3 sm:gap-6 pt-6 border-t border-[#222919] max-w-xl">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-[#222919] max-w-xl">
             <div>
               <div className="text-2xl sm:text-3xl font-black text-white">
                 <HeroAnimeCounter value={sportsCount} />

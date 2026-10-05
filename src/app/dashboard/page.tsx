@@ -565,6 +565,7 @@ export default function PageDashboard() {
         event={eventToEdit}
         isOpen={Boolean(eventToEdit)}
         onClose={() => setEventToEdit(null)}
+        categories={categories}
         onEventUpdated={loadData}
       />
     </div>
